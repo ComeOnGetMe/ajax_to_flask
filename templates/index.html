@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        var name_got_elsewhere='Name';
+
+        $(function() {
+            $('#hint').click(function () {
+                alert('your name has been posted.');
+                $.ajax({
+                    url: '/',
+                    type: 'post',
+                    datatype: 'json',
+                    data: {'name': name_got_elsewhere, 'problem_id': '2', 'week_id': '5'},
+                    success: function (response) {
+                        alert('click event recorded.')
+//                        alert(response.message);
+//                        alert(response.keys);
+                    }
+                });
+            });
+        });
+    </script>
+    <title>Demo</title>
+</head>
+<body>
+    <button id="hint">Submit</button>
+</body>
+</html>
